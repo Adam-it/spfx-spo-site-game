@@ -59,8 +59,7 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
     bio:
       '"This is SharePoint unless I am totally mistaken." — Vesa Juvonen\n\n' +
       'Vesa leads the SharePoint developer platform & the PnP community initiative. ' +
-      'Organizer of PnP weekly calls, SPFx samples, and hundreds of community calls. ' +
-      'Follow: @vesajuvonen  |  Microsoft 365 & Power Platform Community',
+      'Organizer of PnP weekly calls, SPFx samples, and hundreds of community calls. '
   },
   {
     id: 'warrior_horse_1',
