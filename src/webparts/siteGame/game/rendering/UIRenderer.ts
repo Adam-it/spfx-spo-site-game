@@ -14,12 +14,22 @@ export class UIRenderer {
     gameTimeMs: number,
     proximityTarget: IBuilding | INPC | undefined,
     discoveredEggs: Set<string>,
+    discoveredBuildings: Set<string>,
+    discoveredUsers: Set<string>,
+    totalEggs: number,
+    totalBuildings: number,
+    totalUsers: number,
     showHints: boolean,
     mapRows: number,
     mapCols: number,
     tileMap: { walkable: boolean }[][]
   ): void {
     this.renderMinimap(ctx, camera, player, npcs, buildings, discoveredEggs, mapRows, mapCols, tileMap);
+    this.renderScoreHUD(
+      ctx, gameTimeMs,
+      discoveredEggs.size, totalEggs,
+      discoveredBuildings.size + discoveredUsers.size, totalBuildings + totalUsers
+    );
     if (proximityTarget !== undefined) {
       this.renderProximityHint(ctx, camera, proximityTarget, gameTimeMs);
     }
@@ -147,6 +157,103 @@ export class UIRenderer {
     ctx.font = 'bold 11px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(text, camera.viewportW / 2, by + 15);
+    ctx.textAlign = 'left';
+  }
+
+  private renderScoreHUD(
+    ctx: CanvasRenderingContext2D,
+    gameTimeMs: number,
+    pnpCount: number,
+    pnpTotal: number,
+    siteCount: number,
+    siteTotal: number
+  ): void {
+    const panelX = 10;
+    const panelY = 10;
+    const panelW = 120;
+    const panelH = 60;
+    const barX = panelX + 8;
+    const barW = panelW - 16;
+    const barH = 5;
+    const radius = 7;
+
+    // Panel background
+    ctx.fillStyle = 'rgba(0,0,0,0.62)';
+    ctx.beginPath();
+    ctx.roundRect(panelX, panelY, panelW, panelH, radius);
+    ctx.fill();
+    // Subtle top highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath();
+    ctx.roundRect(panelX, panelY, panelW, panelH / 2, radius);
+    ctx.fill();
+
+    // ── PnP row ──────────────────────────────────────────────────────────────
+    const pnpFrac = pnpTotal > 0 ? pnpCount / pnpTotal : 0;
+    const pnpComplete = pnpFrac >= 1;
+    const pnpGlow = pnpComplete ? (0.55 + 0.45 * Math.sin(gameTimeMs / 320)) : 1;
+
+    const pnpLabelY = panelY + 18;
+    ctx.globalAlpha = pnpGlow;
+    ctx.font = 'bold 10px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = pnpComplete ? '#ffe066' : '#ffd700';
+    ctx.fillText('\u2B50 PnP', barX, pnpLabelY);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = pnpComplete ? '#ffe066' : '#e8c840';
+    ctx.fillText(`${pnpCount}\u2009/\u2009${pnpTotal}`, panelX + panelW - 8, pnpLabelY);
+    ctx.globalAlpha = 1;
+
+    // PnP progress bar track
+    const pnpBarY = pnpLabelY + 4;
+    ctx.fillStyle = 'rgba(255,215,0,0.22)';
+    ctx.beginPath();
+    ctx.roundRect(barX, pnpBarY, barW, barH, 2);
+    ctx.fill();
+    // PnP progress bar fill
+    const pnpFillW = Math.round(barW * pnpFrac);
+    if (pnpFillW > 0) {
+      ctx.globalAlpha = pnpGlow;
+      ctx.fillStyle = pnpComplete ? '#ffe066' : '#ffd700';
+      ctx.beginPath();
+      ctx.roundRect(barX, pnpBarY, pnpFillW, barH, 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    // ── Site row ─────────────────────────────────────────────────────────────
+    const siteFrac = siteTotal > 0 ? siteCount / siteTotal : 0;
+    const siteComplete = siteFrac >= 1;
+    const siteGlow = siteComplete ? (0.55 + 0.45 * Math.sin(gameTimeMs / 280 + 1.2)) : 1;
+
+    const siteLabelY = panelY + 44;
+    ctx.globalAlpha = siteGlow;
+    ctx.font = 'bold 10px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = siteComplete ? '#7fffd4' : '#60d8b8';
+    ctx.fillText('\u{1F5FA} Site', barX, siteLabelY);
+    ctx.textAlign = 'right';
+    ctx.fillStyle = siteComplete ? '#7fffd4' : '#40c0a0';
+    ctx.fillText(`${siteCount}\u2009/\u2009${siteTotal}`, panelX + panelW - 8, siteLabelY);
+    ctx.globalAlpha = 1;
+
+    // Site progress bar track
+    const siteBarY = siteLabelY + 4;
+    ctx.fillStyle = 'rgba(60,210,180,0.22)';
+    ctx.beginPath();
+    ctx.roundRect(barX, siteBarY, barW, barH, 2);
+    ctx.fill();
+    // Site progress bar fill
+    const siteFillW = Math.round(barW * siteFrac);
+    if (siteFillW > 0) {
+      ctx.globalAlpha = siteGlow;
+      ctx.fillStyle = siteComplete ? '#7fffd4' : '#60d8b8';
+      ctx.beginPath();
+      ctx.roundRect(barX, siteBarY, siteFillW, barH, 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
     ctx.textAlign = 'left';
   }
 

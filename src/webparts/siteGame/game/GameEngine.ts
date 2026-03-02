@@ -44,6 +44,11 @@ export class GameEngine {
   private currentInfoTarget: IInfoTarget | null = null;
   private proximityTarget: IBuilding | INPC | undefined = undefined;
   private discoveredEggs = new Set<string>();
+  private discoveredBuildings = new Set<string>();
+  private discoveredUsers = new Set<string>();
+  private totalEggs = 0;
+  private totalBuildings = 0;
+  private totalUsers = 0;
   private npcRngs: Map<string, () => number> = new Map();
 
   constructor(
@@ -62,6 +67,11 @@ export class GameEngine {
     state.npcs.forEach((npc, idx) => {
       this.npcRngs.set(npc.id, seededRandom(idx * 1337 + 42));
     });
+
+    // Cache totals for score display
+    this.totalEggs = state.npcs.filter(n => n.kind === 'easteregg').length;
+    this.totalBuildings = state.buildings.length;
+    this.totalUsers = state.npcs.filter(n => n.kind === 'user').length;
   }
 
   public start(): void {
@@ -282,6 +292,8 @@ export class GameEngine {
       let newTarget: IInfoTarget;
       if ('listId' in nearest) {
         newTarget = { kind: 'building', data: nearest as IBuilding };
+        // Record building visit for Site score
+        this.discoveredBuildings.add(nearest.id);
       } else {
         const npc = nearest as INPC;
         newTarget = { kind: 'npc', data: npc };
@@ -289,6 +301,10 @@ export class GameEngine {
         if (npc.kind === 'easteregg' && !this.discoveredEggs.has(npc.id)) {
           this.discoveredEggs.add(npc.id);
           this.onEggDiscovered(npc.id, npc.name);
+        }
+        // Record user NPC conversation for Site score
+        if (npc.kind === 'user') {
+          this.discoveredUsers.add(npc.id);
         }
       }
 
@@ -327,6 +343,11 @@ export class GameEngine {
       gameTimeMs,
       this.proximityTarget,
       this.discoveredEggs,
+      this.discoveredBuildings,
+      this.discoveredUsers,
+      this.totalEggs,
+      this.totalBuildings,
+      this.totalUsers,
       gameTimeMs < GameConfig.HUD_FADE_TIME_MS,
       mapRows,
       mapCols,
