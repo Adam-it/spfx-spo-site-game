@@ -347,6 +347,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       warrior_horse: '🐴',
       campfire: '🔥',
       m365_chilli: '🌶️',
+      spfx_toolkit: '🧩',
     };
 
     const bioText = this.state.activeBio ?? npc.bio;

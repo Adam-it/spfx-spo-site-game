@@ -164,6 +164,37 @@ export const WARRIOR_HORSE: DrawCommand[] = [
   { op: 'fillRect', color: '#0c0804', x: 23, y: 29, w: 3, h: 2 },
 ];
 
+// ---- SPFx Toolkit VS Code extension ----
+// Body = VS Code icon: dark border, blue fill, white ">" chevron + I-beam, legs
+export const SPFX_TOOLKIT: DrawCommand[] = [
+  // ── Dark navy outer body ──
+  { op: 'fillRect', color: '#003a7a', x: 4,  y: 1,  w: 24, h: 20 },
+  // ── VS Code blue fill ──
+  { op: 'fillRect', color: '#0078d4', x: 6,  y: 3,  w: 20, h: 16 },
+
+  // ── White I-beam / left vertical bar (classic VS Code left-edge) ──
+  { op: 'fillRect', color: '#ffffff', x: 7,  y: 4,  w: 2,  h: 13 },
+
+  // ── White ">" upper arm: steps from top-left → right-center ──
+  { op: 'fillRect', color: '#ffffff', x: 9,  y: 4,  w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 11, y: 6,  w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 13, y: 8,  w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 15, y: 10, w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 17, y: 12, w: 3,  h: 2  }, // apex
+
+  // ── White ">" lower arm: steps from right-center → bottom-left ──
+  { op: 'fillRect', color: '#ffffff', x: 15, y: 14, w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 13, y: 16, w: 3,  h: 2  },
+  { op: 'fillRect', color: '#ffffff', x: 11, y: 17, w: 3,  h: 2  },
+
+  // ── Legs (dark navy) ──
+  { op: 'fillRect', color: '#003a7a', x: 9,  y: 21, w: 5,  h: 8  },
+  { op: 'fillRect', color: '#003a7a', x: 18, y: 21, w: 5,  h: 8  },
+  // Boots (VS Code blue)
+  { op: 'fillRect', color: '#0078d4', x: 8,  y: 27, w: 6,  h: 3  },
+  { op: 'fillRect', color: '#0078d4', x: 17, y: 27, w: 6,  h: 3  },
+];
+
 // ---- CLI for Microsoft 365 — walking "CLI" pixel-art letters ----
 export const CLI_M365: DrawCommand[] = [
   // ── Stem (dark green) ──
@@ -222,6 +253,7 @@ export type SpriteKey =
   | 'vesa_npc'
   | 'warrior_horse'
   | 'm365_chilli'
+  | 'spfx_toolkit'
   | 'campfire';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
@@ -234,6 +266,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   vesa_npc: VESA_NPC,
   warrior_horse: WARRIOR_HORSE,
   m365_chilli: CLI_M365,
+  spfx_toolkit: SPFX_TOOLKIT,
   campfire: CAMPFIRE,
 };
 

@@ -364,4 +364,58 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
       '⭐ aka.ms/m365pnp\n' +
       '💻 github.com/pnp',
   },
+  {
+    id: 'spfx_toolkit',
+    name: 'SPFx Toolkit',
+    kind: 'easteregg',
+    spriteKey: 'spfx_toolkit',
+    title: '🧩 SPFx Toolkit — VS Code extension for SharePoint Framework',
+    bio: 'pnp.github.io/vscode-viva',
+    bios: [
+      // Tip 1 — What it is & install
+      '\ud83e\udde9 "Hello, I am the SPFx Toolkit!"\n\n' +
+      'SPFx Toolkit is a free, open-source VS Code extension built by the PnP ' +
+      'community that turbocharges SharePoint Framework development.\n\n' +
+      'Install from the VS Code Marketplace:\n' +
+      '  Search \'SPFx Toolkit\' or install the extension ID:\n' +
+      '  m365pnp.vscode-viva\n\n' +
+      'What you get out of the box:\n' +
+      '  \u2705 Project scaffolding wizard (web parts, extensions, ACEs)\n' +
+      '  \u2705 One-click build, serve, bundle & deploy actions\n' +
+      '  \u2705 Sign in to your Microsoft 365 tenant\n' +
+      '  \u2705 Browse & install PnP samples directly in VS Code\n\n' +
+      '\ud83d\udce6 Install \u2192 marketplace.visualstudio.com (search SPFx Toolkit)\n' +
+      '\ud83c\udf10 Docs    \u2192 pnp.github.io/vscode-viva',
+
+      // Tip 2 — Scaffolding & actions
+      '\ud83e\udde9 "Scaffold and manage SPFx projects without leaving VS Code!"\n\n' +
+      'The extension adds a dedicated SPFx activity bar panel with:\n\n' +
+      '  \ud83c\udfd7  Create new project \u2014 guided wizard covering:\n' +
+      '       \u00b7 Web part \u00b7 Extension \u00b7 Library component\n' +
+      '       \u00b7 Adaptive Card Extension (ACE)\n' +
+      '       \u00b7 Choice of React, No JS, or other frameworks\n\n' +
+      '  \u26a1 Task actions panel:\n' +
+      '       \u00b7 gulp build  / bundle / package-solution\n' +
+      '       \u00b7 gulp serve  with auto-open workbench URL\n' +
+      '       \u00b7 Deploy to App Catalog in one click\n\n' +
+      '  \ud83d\udd0d Environment details \u2014 shows SPFx, Node & tenant info\n\n' +
+      '\ud83d\udcd6 Scaffolding guide \u2192 pnp.github.io/vscode-viva/guides/create-project',
+
+      // Tip 3 — CI/CD pipelines & upgrade
+      '\ud83e\udde9 "From project to production pipeline in minutes!"\n\n' +
+      'SPFx Toolkit goes beyond scaffolding:\n\n' +
+      '  \ud83d\udd04 Upgrade SPFx projects \u2014 analyses your solution and\n' +
+      '     generates step-by-step upgrade instructions to the\n' +
+      '     latest SPFx version using CLI for Microsoft 365\n\n' +
+      '  \ud83d\ude80 CI/CD pipeline generator \u2014 creates ready-to-use\n' +
+      '     GitHub Actions or Azure DevOps YAML pipelines\n' +
+      '     for build, bundle, package and deploy\n\n' +
+      '  \ud83d\udccb Validate solutions \u2014 checks your project for\n' +
+      '     common issues before deployment\n\n' +
+      '  \ud83d\uddc2  Sample gallery \u2014 browse 500+ PnP samples and\n' +
+      '     open them directly into your workspace\n\n' +
+      '\u2699\ufe0f Pipeline guide \u2192 pnp.github.io/vscode-viva/guides/ci-cd-pipeline\n' +
+      '\ud83c\udf10 Full docs       \u2192 pnp.github.io/vscode-viva',
+    ],
+  },
 ];

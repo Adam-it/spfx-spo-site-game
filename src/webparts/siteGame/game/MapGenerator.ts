@@ -257,6 +257,7 @@ export class MapGenerator {
         { row: midRow + 4, col: midCol + 12 },   // warrior_horse_5
         { row: midRow - 3, col: midCol + 7 },    // cli_m365
         { row: midRow + 1, col: midCol - 1 },    // campfire
+        { row: midRow + 5, col: midCol - 7 },    // spfx_toolkit
       ];
 
       EASTER_EGG_DEFINITIONS.forEach((def, idx) => {

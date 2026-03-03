@@ -73,6 +73,8 @@ export class CharacterRenderer {
       drawY += Math.round(Math.abs(Math.sin(gameTimeMs / 300)) * -6);
     } else if (npc.spriteKey === 'm365_chilli') {
       drawY += Math.round(Math.sin(gameTimeMs / 500) * -3);
+    } else if (npc.spriteKey === 'spfx_toolkit') {
+      drawY += Math.round(Math.sin(gameTimeMs / 420) * -4);
     } else if (npc.spriteKey === 'campfire') {
       // campfire doesn't need movement, just draw at center
       renderSprite(ctx, npc.spriteKey, sx, drawY, false);
