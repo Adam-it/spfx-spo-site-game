@@ -26,6 +26,8 @@ const logoSpfxToolkit: string  = require('../../../../../assets/logos/pnp-spfx-t
 const logoPowershell: string   = require('../../../../../assets/logos/pnp-powershell.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoPowerAutomate: string = require('../../../../../assets/logos/power-automate.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoSPFxSamples: string      = require('../../../../../assets/logos/pnp-samples-social.png');
 
 interface IFolderEntry { url: string; name: string; }
 
@@ -371,11 +373,12 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
     };
 
     const logoMap: Record<string, string> = {
-      pnp_rabbit:     logoPnpjs,
-      m365_chilli:    logoCli,
-      spfx_toolkit:   logoSpfxToolkit,
-      pnp_powershell: logoPowershell,
-      power_automate: logoPowerAutomate,
+      pnp_rabbit:       logoPnpjs,
+      m365_chilli:      logoCli,
+      spfx_toolkit:     logoSpfxToolkit,
+      pnp_powershell:   logoPowershell,
+      power_automate:   logoPowerAutomate,
+      pnp_spfx_samples: logoSPFxSamples,
     };
 
     const bioText = this.state.activeBio ?? npc.bio;

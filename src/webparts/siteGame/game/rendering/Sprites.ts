@@ -350,66 +350,31 @@ export const CAMPFIRE: DrawCommand[] = [
   { op: 'circle', color: '#ff4400', cx: 14, cy: 8, r: 1 },
 ];
 
-// ---- PnP SPFx Samples — Stack of sample books ----
+// ---- PnP SPFx Samples — Match official PnP Samples logo badge ----
 export const PNP_SPFX_SAMPLES: DrawCommand[] = [
 
-  // ── Bottom book (Blue — Web Parts) ──
-  // Cover
-  { op: 'fillRect', color: '#2563eb', x: 3, y: 20, w: 22, h: 10 },
-  // Pages edge (white)
-  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 21, w: 2, h: 8 },
-  // Page lines
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 22, w: 2, h: 0.5 },
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 24, w: 2, h: 0.5 },
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 26, w: 2, h: 0.5 },
-  // Spine shadow
-  { op: 'fillRect', color: '#1e40af', x: 3, y: 20, w: 2, h: 10 },
-  // "</>" code symbol
-  { op: 'fillRect', color: '#ffffff', x: 7, y: 23, w: 2, h: 4 },
-  { op: 'fillRect', color: '#ffffff', x: 10, y: 24, w: 3, h: 2 },
-  { op: 'fillRect', color: '#ffffff', x: 14, y: 23, w: 2, h: 4 },
+  // ── Outer teal border/frame ──
+  { op: 'fillRect', color: '#2D8B8A', x: 2, y: 0, w: 28, h: 22 },
 
-  // ── Middle book (Purple — Extensions) ──
-  // Cover
-  { op: 'fillRect', color: '#7c3aed', x: 5, y: 12, w: 20, h: 8 },
-  // Pages edge
-  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 13, w: 2, h: 6 },
-  // Page lines
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 14, w: 2, h: 0.5 },
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 16, w: 2, h: 0.5 },
-  // Spine shadow
-  { op: 'fillRect', color: '#6d28d9', x: 5, y: 12, w: 2, h: 8 },
-  // "SPFx" text
-  { op: 'text', color: '#ffffff', text: 'SPFx', x: 8, y: 18, size: 5 },
+  // ── Top section: teal background for "PnP" ──
+  { op: 'fillRect', color: '#2D8B8A', x: 3, y: 1, w: 26, h: 9 },
 
-  // ── Top book (Green — ACEs) ──
-  // Cover
-  { op: 'fillRect', color: '#16a34a', x: 7, y: 5, w: 18, h: 7 },
-  // Pages edge
-  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 6, w: 2, h: 5 },
-  // Page lines
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 7, w: 2, h: 0.5 },
-  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 9, w: 2, h: 0.5 },
-  // Spine shadow
-  { op: 'fillRect', color: '#15803d', x: 7, y: 5, w: 2, h: 7 },
-  // "{}" code symbol
-  { op: 'fillRect', color: '#ffffff', x: 11, y: 7, w: 1.5, h: 4 },
-  { op: 'fillRect', color: '#ffffff', x: 11, y: 7, w: 2, h: 1 },
-  { op: 'fillRect', color: '#ffffff', x: 11, y: 10, w: 2, h: 1 },
-  { op: 'fillRect', color: '#ffffff', x: 19, y: 7, w: 1.5, h: 4 },
-  { op: 'fillRect', color: '#ffffff', x: 18, y: 7, w: 2, h: 1 },
-  { op: 'fillRect', color: '#ffffff', x: 18, y: 10, w: 2, h: 1 },
+  // ── "PnP" text in white on teal ──
+  { op: 'text', color: '#ffffff', text: 'PnP', x: 9, y: 8, size: 8 },
 
-  // ── Bookmark ribbon (red) ──
-  { op: 'fillRect', color: '#dc2626', x: 14, y: 2, w: 2, h: 11 },
-  // V-notch at bottom
-  { op: 'fillRect', color: '#dc2626', x: 14, y: 12, w: 0.8, h: 1 },
-  { op: 'fillRect', color: '#dc2626', x: 15.2, y: 12, w: 0.8, h: 1 },
+  // ── Bottom section: white background for "SAMPLES" ──
+  { op: 'fillRect', color: '#ffffff', x: 3, y: 10, w: 26, h: 11 },
 
-  // ── Quality badge star (top right) ──
-  { op: 'circle', color: '#fbbf24', cx: 26, cy: 3, r: 2.5 },
-  { op: 'fillRect', color: '#fff7cc', x: 25.6, y: 1.5, w: 0.8, h: 3 },
-  { op: 'fillRect', color: '#fff7cc', x: 24.5, y: 2.5, w: 3, h: 0.8 },
+  // ── "SAMPLES" text in teal on white ──
+  { op: 'text', color: '#2D8B8A', text: 'SAMPLES', x: 4, y: 18, size: 5 },
+
+  // ── Legs (teal matching the badge) ──
+  { op: 'fillRect', color: '#2D8B8A', x: 8, y: 23, w: 5, h: 5 },
+  { op: 'fillRect', color: '#2D8B8A', x: 19, y: 23, w: 5, h: 5 },
+  
+  // ── Boots (darker teal shade) ──
+  { op: 'fillRect', color: '#1e6766', x: 7, y: 27, w: 7, h: 3 },
+  { op: 'fillRect', color: '#1e6766', x: 18, y: 27, w: 7, h: 3 },
 
 ];
 
@@ -475,9 +440,19 @@ export function renderSprite(
       ctx.fillStyle = cmd.color;
       ctx.fill();
     } else if (cmd.op === 'text') {
-      ctx.fillStyle = cmd.color;
-      ctx.font = `bold ${cmd.size}px monospace`;
-      ctx.fillText(cmd.text, cmd.x, cmd.y);
+      if (flip) {
+        // Un-flip text so it remains readable when sprite is flipped
+        ctx.save();
+        ctx.scale(-1, 1);
+        ctx.fillStyle = cmd.color;
+        ctx.font = `bold ${cmd.size}px monospace`;
+        ctx.fillText(cmd.text, -cmd.x - (cmd.text.length * cmd.size * 0.6), cmd.y);
+        ctx.restore();
+      } else {
+        ctx.fillStyle = cmd.color;
+        ctx.font = `bold ${cmd.size}px monospace`;
+        ctx.fillText(cmd.text, cmd.x, cmd.y);
+      }
     } else if (cmd.op === 'arc') {
       ctx.beginPath();
       ctx.arc(cmd.cx, cmd.cy, cmd.r, cmd.start, cmd.end);
