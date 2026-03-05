@@ -365,6 +365,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       campfire: '🔥',
       m365_chilli:    '🌶️',
       spfx_toolkit:   '🧩',
+      pnp_spfx_samples: '📚',
       pnp_powershell: '🖥️',
       power_automate: '⚡',
     };

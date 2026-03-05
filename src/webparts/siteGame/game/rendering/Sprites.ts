@@ -147,18 +147,18 @@ export const WARRIOR_HORSE: DrawCommand[] = [
   { op: 'fillRect', color: '#2c1808', x: 7, y: 6, w: 2, h: 10 },
   // ── Legs ──
   // Front pair
-  { op: 'fillRect', color: '#8a3c14', x: 8,  y: 24, w: 4, h: 8 },
+  { op: 'fillRect', color: '#8a3c14', x: 8, y: 24, w: 4, h: 8 },
   { op: 'fillRect', color: '#8a3c14', x: 13, y: 24, w: 4, h: 8 },
   // Back pair
   { op: 'fillRect', color: '#7a3010', x: 19, y: 24, w: 4, h: 7 },
   { op: 'fillRect', color: '#7a3010', x: 23, y: 24, w: 3, h: 6 },
   // Cannon-bone darkening
-  { op: 'fillRect', color: '#2c1408', x: 8,  y: 27, w: 4, h: 5 },
+  { op: 'fillRect', color: '#2c1408', x: 8, y: 27, w: 4, h: 5 },
   { op: 'fillRect', color: '#2c1408', x: 13, y: 27, w: 4, h: 5 },
   { op: 'fillRect', color: '#2c1408', x: 19, y: 27, w: 4, h: 4 },
   { op: 'fillRect', color: '#2c1408', x: 23, y: 27, w: 3, h: 3 },
   // Hooves
-  { op: 'fillRect', color: '#0c0804', x: 8,  y: 30, w: 4, h: 2 },
+  { op: 'fillRect', color: '#0c0804', x: 8, y: 30, w: 4, h: 2 },
   { op: 'fillRect', color: '#0c0804', x: 13, y: 30, w: 4, h: 2 },
   { op: 'fillRect', color: '#0c0804', x: 19, y: 30, w: 4, h: 2 },
   { op: 'fillRect', color: '#0c0804', x: 23, y: 29, w: 3, h: 2 },
@@ -305,30 +305,30 @@ export const PNP_POWERSHELL: DrawCommand[] = [
 // ---- CLI for Microsoft 365 — walking "CLI" pixel-art letters ----
 export const CLI_M365: DrawCommand[] = [
   // ── Stem (dark green) ──
-  { op: 'fillRect', color: '#14532d', x: 15, y: 0,  w: 3, h: 6 },
+  { op: 'fillRect', color: '#14532d', x: 15, y: 0, w: 3, h: 6 },
 
   // ── Calyx — three rounded green lobes (not a simple flat cap) ──
-  { op: 'circle', color: '#16a34a', cx: 12, cy: 7,  r: 3.5 },
-  { op: 'circle', color: '#16a34a', cx: 16, cy: 6,  r: 3.5 },
-  { op: 'circle', color: '#16a34a', cx: 20, cy: 7,  r: 3.5 },
-  { op: 'fillRect', color: '#16a34a', x: 10, y: 5,  w: 12, h: 5 }, // fill between lobes
+  { op: 'circle', color: '#16a34a', cx: 12, cy: 7, r: 3.5 },
+  { op: 'circle', color: '#16a34a', cx: 16, cy: 6, r: 3.5 },
+  { op: 'circle', color: '#16a34a', cx: 20, cy: 7, r: 3.5 },
+  { op: 'fillRect', color: '#16a34a', x: 10, y: 5, w: 12, h: 5 }, // fill between lobes
 
   // ── Body — large round top (key: chili ≠ carrot triangle) ──
-  { op: 'circle',   color: '#dc2626', cx: 16, cy: 13, r: 7 },
-  { op: 'fillRect', color: '#dc2626', x: 9,  y: 8,   w: 14, h: 10 },
+  { op: 'circle', color: '#dc2626', cx: 16, cy: 13, r: 7 },
+  { op: 'fillRect', color: '#dc2626', x: 9, y: 8, w: 14, h: 10 },
 
   // ── Mid — curves 1 px rightward ──
-  { op: 'circle',   color: '#dc2626', cx: 17, cy: 20, r: 5 },
-  { op: 'fillRect', color: '#dc2626', x: 12, y: 16,  w: 10, h: 7 },
+  { op: 'circle', color: '#dc2626', cx: 17, cy: 20, r: 5 },
+  { op: 'fillRect', color: '#dc2626', x: 12, y: 16, w: 10, h: 7 },
 
   // ── Lower taper — continues curving right ──
-  { op: 'fillRect', color: '#b91c1c', x: 14, y: 22,  w: 7,  h: 4 },
-  { op: 'fillRect', color: '#991b1b', x: 15, y: 25,  w: 5,  h: 3 },
-  { op: 'fillRect', color: '#7f1d1d', x: 16, y: 27,  w: 4,  h: 2 },
+  { op: 'fillRect', color: '#b91c1c', x: 14, y: 22, w: 7, h: 4 },
+  { op: 'fillRect', color: '#991b1b', x: 15, y: 25, w: 5, h: 3 },
+  { op: 'fillRect', color: '#7f1d1d', x: 16, y: 27, w: 4, h: 2 },
 
   // ── Curved tip ──
-  { op: 'fillRect', color: '#7f1d1d', x: 17, y: 29,  w: 3,  h: 2 },
-  { op: 'fillRect', color: '#6b1212', x: 18, y: 30,  w: 2,  h: 1 },
+  { op: 'fillRect', color: '#7f1d1d', x: 17, y: 29, w: 3, h: 2 },
+  { op: 'fillRect', color: '#6b1212', x: 18, y: 30, w: 2, h: 1 },
 
   // ── Sheen highlight (upper-left, gives 3-D pepper look) ──
   { op: 'circle', color: 'rgba(255,180,160,0.55)', cx: 13, cy: 12, r: 4 },
@@ -350,6 +350,69 @@ export const CAMPFIRE: DrawCommand[] = [
   { op: 'circle', color: '#ff4400', cx: 14, cy: 8, r: 1 },
 ];
 
+// ---- PnP SPFx Samples — Stack of sample books ----
+export const PNP_SPFX_SAMPLES: DrawCommand[] = [
+
+  // ── Bottom book (Blue — Web Parts) ──
+  // Cover
+  { op: 'fillRect', color: '#2563eb', x: 3, y: 20, w: 22, h: 10 },
+  // Pages edge (white)
+  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 21, w: 2, h: 8 },
+  // Page lines
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 22, w: 2, h: 0.5 },
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 24, w: 2, h: 0.5 },
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 26, w: 2, h: 0.5 },
+  // Spine shadow
+  { op: 'fillRect', color: '#1e40af', x: 3, y: 20, w: 2, h: 10 },
+  // "</>" code symbol
+  { op: 'fillRect', color: '#ffffff', x: 7, y: 23, w: 2, h: 4 },
+  { op: 'fillRect', color: '#ffffff', x: 10, y: 24, w: 3, h: 2 },
+  { op: 'fillRect', color: '#ffffff', x: 14, y: 23, w: 2, h: 4 },
+
+  // ── Middle book (Purple — Extensions) ──
+  // Cover
+  { op: 'fillRect', color: '#7c3aed', x: 5, y: 12, w: 20, h: 8 },
+  // Pages edge
+  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 13, w: 2, h: 6 },
+  // Page lines
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 14, w: 2, h: 0.5 },
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 16, w: 2, h: 0.5 },
+  // Spine shadow
+  { op: 'fillRect', color: '#6d28d9', x: 5, y: 12, w: 2, h: 8 },
+  // "SPFx" text
+  { op: 'text', color: '#ffffff', text: 'SPFx', x: 8, y: 18, size: 5 },
+
+  // ── Top book (Green — ACEs) ──
+  // Cover
+  { op: 'fillRect', color: '#16a34a', x: 7, y: 5, w: 18, h: 7 },
+  // Pages edge
+  { op: 'fillRect', color: '#f5f5f5', x: 25, y: 6, w: 2, h: 5 },
+  // Page lines
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 7, w: 2, h: 0.5 },
+  { op: 'fillRect', color: '#e0e0e0', x: 25, y: 9, w: 2, h: 0.5 },
+  // Spine shadow
+  { op: 'fillRect', color: '#15803d', x: 7, y: 5, w: 2, h: 7 },
+  // "{}" code symbol
+  { op: 'fillRect', color: '#ffffff', x: 11, y: 7, w: 1.5, h: 4 },
+  { op: 'fillRect', color: '#ffffff', x: 11, y: 7, w: 2, h: 1 },
+  { op: 'fillRect', color: '#ffffff', x: 11, y: 10, w: 2, h: 1 },
+  { op: 'fillRect', color: '#ffffff', x: 19, y: 7, w: 1.5, h: 4 },
+  { op: 'fillRect', color: '#ffffff', x: 18, y: 7, w: 2, h: 1 },
+  { op: 'fillRect', color: '#ffffff', x: 18, y: 10, w: 2, h: 1 },
+
+  // ── Bookmark ribbon (red) ──
+  { op: 'fillRect', color: '#dc2626', x: 14, y: 2, w: 2, h: 11 },
+  // V-notch at bottom
+  { op: 'fillRect', color: '#dc2626', x: 14, y: 12, w: 0.8, h: 1 },
+  { op: 'fillRect', color: '#dc2626', x: 15.2, y: 12, w: 0.8, h: 1 },
+
+  // ── Quality badge star (top right) ──
+  { op: 'circle', color: '#fbbf24', cx: 26, cy: 3, r: 2.5 },
+  { op: 'fillRect', color: '#fff7cc', x: 25.6, y: 1.5, w: 0.8, h: 3 },
+  { op: 'fillRect', color: '#fff7cc', x: 24.5, y: 2.5, w: 3, h: 0.8 },
+
+];
+
 export type SpriteKey =
   | 'player'
   | 'player_walk1'
@@ -363,7 +426,8 @@ export type SpriteKey =
   | 'spfx_toolkit'
   | 'pnp_powershell'
   | 'power_automate'
-  | 'campfire';
+  | 'campfire'
+  | 'pnp_spfx_samples';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   player: PLAYER_SPRITE,
@@ -379,6 +443,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   pnp_powershell: PNP_POWERSHELL,
   power_automate: POWER_AUTOMATE,
   campfire: CAMPFIRE,
+  pnp_spfx_samples: PNP_SPFX_SAMPLES,
 };
 
 export function renderSprite(
