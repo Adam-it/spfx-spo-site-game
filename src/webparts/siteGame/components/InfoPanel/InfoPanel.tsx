@@ -398,7 +398,6 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
               src={logo}
               alt={npc.name}
               className={styles.eggLogo}
-              style={npc.spriteKey === 'power_bi' ? { maxHeight: 50 } : undefined}
             />
           : icon && <div className={styles.eggIcon}>{icon}</div>
         }
