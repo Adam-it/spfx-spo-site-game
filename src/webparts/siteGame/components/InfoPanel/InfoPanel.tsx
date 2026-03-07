@@ -28,6 +28,8 @@ const logoPowershell: string   = require('../../../../../assets/logos/pnp-powers
 const logoPowerAutomate: string = require('../../../../../assets/logos/power-automate.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoSPFxSamples: string      = require('../../../../../assets/logos/pnp-samples-social.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoPowerBI: string         = require('../../../../../assets/logos/power-bi.png');
 
 interface IFolderEntry { url: string; name: string; }
 
@@ -370,6 +372,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       pnp_spfx_samples: '📚',
       pnp_powershell: '🖥️',
       power_automate: '⚡',
+      power_bi: '📊',
       julie: '🌟',
       luise: '👑',
     };
@@ -381,6 +384,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       pnp_powershell:   logoPowershell,
       power_automate:   logoPowerAutomate,
       pnp_spfx_samples: logoSPFxSamples,
+      power_bi:         logoPowerBI,
     };
 
     const bioText = this.state.activeBio ?? npc.bio;
@@ -390,7 +394,12 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
     return (
       <Stack>
         {logo
-          ? <img src={logo} alt={npc.name} className={styles.eggLogo} />
+          ? <img
+              src={logo}
+              alt={npc.name}
+              className={styles.eggLogo}
+              style={npc.spriteKey === 'power_bi' ? { maxHeight: 50 } : undefined}
+            />
           : icon && <div className={styles.eggIcon}>{icon}</div>
         }
         <Text

@@ -446,6 +446,12 @@ export const LUISE: DrawCommand[] = [
 
 ];
 
+export const POWER_BI: DrawCommand[] = [
+  // simple yellow square with BI text
+  { op: 'fillRect', color: '#F2C811', x: 8, y: 8, w: 16, h: 16 },
+  { op: 'text', color: '#000', text: 'BI', x: 10, y: 22, size: 10 },
+];
+
 export type SpriteKey =
   | 'player'
   | 'player_walk1'
@@ -462,7 +468,8 @@ export type SpriteKey =
   | 'power_automate'
   | 'julie'
   | 'campfire'
-  | 'pnp_spfx_samples';
+  | 'pnp_spfx_samples'
+  | 'power_bi';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   player: PLAYER_SPRITE,
@@ -481,6 +488,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   julie: JULIE,
   campfire: CAMPFIRE,
   pnp_spfx_samples: PNP_SPFX_SAMPLES,
+  power_bi: POWER_BI,
 };
 
 export function renderSprite(
