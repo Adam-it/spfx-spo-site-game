@@ -750,6 +750,35 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
     ],
   },
   {
+    id: 'power_bi',
+    name: 'Power BI',
+    kind: 'easteregg',
+    spriteKey: 'power_bi',
+    title: 'Power BI Developer Hub 📊',
+    bio: 'powerbi.microsoft.com/developer',
+    bios: [
+      // Tip 1 – API and SDK overview
+      '📊 "Power BI empowers developers!"\n\n' +
+      'Use the Power BI REST APIs to embed reports, manage datasets, and automate ' +
+      'workspace operations.\n\n' +
+      'SDKs are available for JavaScript, .NET, and Python. ' +
+      'Start with the JavaScript Client: `powerbi-client` on npm.',
+
+      // Tip 2 – Custom visuals & dev tools
+      '📊 "Visualize with custom visuals!"\n\n' +
+      'Build powerful custom visuals using the Power BI visuals SDK (TypeScript/React). ' +
+      'Use `pbiviz` CLI to package and deploy your visual.\n\n' +
+      'Debug in Power BI Desktop by enabling developer mode. ' +
+      'See docs at aka.ms/pbi-custom-visuals.',
+
+      // Tip 3 – Embedding & authentication
+      '📊 "Embed reports anywhere."\n\n' +
+      'There are two common patterns: user owns data (OAuth) and app owns data (service principal). ' +
+      'Use `powerbicli` or REST for automation.\n\n' +
+      'Embed securely in SPFx with the `@microsoft/powerbi-client-react` package. '
+    ],
+  },
+  {
     id: 'power_pages',
     name: 'Power Pages',
     kind: 'easteregg',

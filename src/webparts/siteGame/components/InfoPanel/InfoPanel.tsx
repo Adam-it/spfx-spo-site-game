@@ -29,6 +29,8 @@ const logoPowerAutomate: string = require('../../../../../assets/logos/power-aut
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoSPFxSamples: string      = require('../../../../../assets/logos/pnp-samples-social.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoPowerBI: string         = require('../../../../../assets/logos/power-bi.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoPowerPages: string    = require('../../../../../assets/logos/power-pages.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoPnpCore: string          = require('../../../../../assets/logos/pnp-core-library.png');
@@ -375,6 +377,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       pnp_spfx_samples: '📚',
       pnp_powershell: '🖥️',
       power_automate: '⚡',
+      power_bi: '📊',
       power_pages: '🧱',
       julie: '🌟',
       luise: '👑',
@@ -389,6 +392,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       power_automate:   logoPowerAutomate,
       power_pages:       logoPowerPages,
       pnp_spfx_samples: logoSPFxSamples,
+      power_bi:         logoPowerBI,
       pnp_core:         logoPnpCore,
     };
 
@@ -399,7 +403,11 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
     return (
       <Stack>
         {logo
-          ? <img src={logo} alt={npc.name} className={styles.eggLogo} />
+          ? <img
+              src={logo}
+              alt={npc.name}
+              className={styles.eggLogo}
+            />
           : icon && <div className={styles.eggIcon}>{icon}</div>
         }
         <Text
