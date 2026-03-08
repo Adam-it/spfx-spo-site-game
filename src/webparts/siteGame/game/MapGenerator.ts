@@ -6,6 +6,7 @@ import { INPC, NPCFacing } from './types/INPC';
 import { IPlayer } from './types/IPlayer';
 import { TileType, TILE_WALKABLE } from './constants/TileTypes';
 import { BuildingType, SP_BASE_TEMPLATE_MAP, DOC_LIB_VARIANTS } from './constants/BuildingTypes';
+import { PlayerPreferences } from './constants/PlayerPreferences';
 
 // Well-known SharePoint library names that get a dedicated building type
 const NAMED_LIBRARY_MAP: Array<{ pattern: RegExp; type: BuildingType }> = [
@@ -352,6 +353,7 @@ export class MapGenerator {
     }
 
     // ── 10. Player start ─────────────────────────────────────────────────────
+    const playerType = PlayerPreferences.getPlayerTypeOrDefault();
     const player: IPlayer = {
       x: (midCol + 1) * ts + ts / 2,
       y: midRow * ts + ts / 2,
@@ -362,7 +364,8 @@ export class MapGenerator {
       animFrame: 0,
       animTimer: 0,
       name: data.currentUser.Title || 'Player',
-      spriteKey: 'player',
+      spriteKey: PlayerPreferences.getSpriteKey(playerType),
+      playerType,
     };
 
     const camera: ICamera = {

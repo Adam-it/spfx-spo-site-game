@@ -1,5 +1,7 @@
 export type PlayerFacing = 'up' | 'down' | 'left' | 'right';
 
+export type PlayerType = 'male' | 'female' | 'neutral';
+
 export interface IPlayer {
   x: number;
   y: number;
@@ -10,5 +12,6 @@ export interface IPlayer {
   animFrame: number;
   animTimer: number;
   name: string;
-  spriteKey: 'player';
+  spriteKey: 'player_male' | 'player_female' | 'player_neutral';
+  playerType: PlayerType;
 }

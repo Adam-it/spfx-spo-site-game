@@ -31,7 +31,9 @@ export class CharacterRenderer {
 
     const isMoving = player.vx !== 0 || player.vy !== 0;
     const walkFrame = Math.floor(gameTimeMs / GameConfig.ANIMATION_FRAME_MS) % 2;
-    const key = isMoving && walkFrame === 1 ? 'player_walk1' : 'player';
+    // Construct animation key based on player type
+    const baseKey = player.spriteKey; // e.g., 'player_male', 'player_female', 'player_neutral'
+    const key = isMoving && walkFrame === 1 ? `${baseKey}_walk1` : baseKey;
     const flip = player.facing === 'left';
 
     renderSprite(ctx, key, sx, sy, flip);

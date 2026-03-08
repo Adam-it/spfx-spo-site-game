@@ -2,13 +2,16 @@ import { IGameState } from './types/IGameState';
 import { IInfoTarget } from './types/IInfoTarget';
 import { IBuilding } from './types/IBuilding';
 import { INPC, NPCFacing } from './types/INPC';
+import { PlayerType } from './types/IPlayer';
 import { GameConfig } from './constants/GameConfig';
+import { PlayerPreferences } from './constants/PlayerPreferences';
 import { CollisionDetector, IAABB } from './CollisionDetector';
 import { InputController } from './InputController';
 import { TileRenderer } from './rendering/TileRenderer';
 import { BuildingRenderer } from './rendering/BuildingRenderer';
 import { CharacterRenderer } from './rendering/CharacterRenderer';
 import { UIRenderer } from './rendering/UIRenderer';
+import { CharacterSelectRenderer } from './rendering/CharacterSelectRenderer';
 import { GameTheme, getThemePalette } from './constants/GameThemes';
 import { SoundEngine } from './audio/SoundEngine';
 
@@ -43,8 +46,10 @@ export class GameEngine {
   private buildingRenderer = new BuildingRenderer();
   private characterRenderer = new CharacterRenderer();
   private uiRenderer = new UIRenderer();
+  private characterSelectRenderer = new CharacterSelectRenderer();
   private activeTheme: GameTheme = 'village';
   private soundEngine = new SoundEngine();
+  private showingCharacterSelect = !PlayerPreferences.hasSelectedPlayerType();
   private currentInfoTarget: IInfoTarget | null = null;
   private proximityTarget: IBuilding | INPC | undefined = undefined;
   private mouseMoveTarget: { x: number; y: number } | null = null;
@@ -63,7 +68,8 @@ export class GameEngine {
     private canvas: HTMLCanvasElement,
     private state: IGameState,
     private onInfoTarget: (target: IInfoTarget | null) => void,
-    private onEggDiscovered: (eggId: string, name: string) => void
+    private onEggDiscovered: (eggId: string, name: string) => void,
+    private onCharacterSelected?: (playerType: PlayerType) => void
   ) {
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('Canvas 2D context unavailable');
@@ -131,6 +137,47 @@ export class GameEngine {
 
   private update(delta: number): void {
     const input = this.input.getSnapshot();
+
+    // ── Handle character selection screen ──────────────────────────────────────
+    if (this.showingCharacterSelect) {
+      if (input.mouseClick) {
+        // Check which character was clicked
+        const charType = this.characterSelectRenderer.getCharacterAtMouse(
+          input.mouseClick.x,
+          input.mouseClick.y
+        );
+        if (charType) {
+          this.characterSelectRenderer.selectType(charType);
+          // Auto-confirm on click
+          const selectedType = this.characterSelectRenderer.getSelectedType();
+          if (selectedType) {
+            PlayerPreferences.setPlayerType(selectedType);
+            this.showingCharacterSelect = false;
+            this.state.player.playerType = selectedType;
+            this.state.player.spriteKey = PlayerPreferences.getSpriteKey(selectedType);
+            this.onCharacterSelected?.(selectedType);
+          }
+        }
+      }
+
+      // Check for interact (Enter) key to cycle selection or confirm
+      if (input.interact) {
+        const currentType = this.characterSelectRenderer.getSelectedType();
+        if (currentType) {
+          // Confirm selection
+          PlayerPreferences.setPlayerType(currentType);
+          this.showingCharacterSelect = false;
+          this.state.player.playerType = currentType;
+          this.state.player.spriteKey = PlayerPreferences.getSpriteKey(currentType);
+          this.onCharacterSelected?.(currentType);
+        } else {
+          // Select first option if none selected
+          this.characterSelectRenderer.selectType('male');
+        }
+      }
+
+      return; // Don't update game while selecting character
+    }
 
     // ── Handle mouse click ─────────────────────────────────────────────────────
     if (input.mouseClick) {
@@ -424,30 +471,38 @@ export class GameEngine {
     ctx.fillStyle = palette.background;
     ctx.fillRect(0, 0, camera.viewportW, camera.viewportH);
 
-    this.tileRenderer.render(palette, ctx, camera, tileMap);
-    this.buildingRenderer.render(ctx, camera, buildings, gameTimeMs);
-    this.characterRenderer.render(ctx, camera, player, npcs, gameTimeMs);
-    this.uiRenderer.render(
-      palette,
-      ctx,
-      camera,
-      player,
-      npcs,
-      buildings,
-      gameTimeMs,
-      this.proximityTarget,
-      this.discoveredEggs,
-      this.discoveredBuildings,
-      this.discoveredUsers,
-      this.discoveredM365Eggs,
-      this.totalEggs,
-      this.totalBuildings,
-      this.totalUsers,
-      this.totalM365Eggs,
-      gameTimeMs < GameConfig.HUD_FADE_TIME_MS,
-      mapRows,
-      mapCols,
-      tileMap
-    );
+    // Always render game world (unless character select is shown)
+    if (!this.showingCharacterSelect) {
+      this.tileRenderer.render(palette, ctx, camera, tileMap);
+      this.buildingRenderer.render(ctx, camera, buildings, gameTimeMs);
+      this.characterRenderer.render(ctx, camera, player, npcs, gameTimeMs);
+      this.uiRenderer.render(
+        palette,
+        ctx,
+        camera,
+        player,
+        npcs,
+        buildings,
+        gameTimeMs,
+        this.proximityTarget,
+        this.discoveredEggs,
+        this.discoveredBuildings,
+        this.discoveredUsers,
+        this.discoveredM365Eggs,
+        this.totalEggs,
+        this.totalBuildings,
+        this.totalUsers,
+        this.totalM365Eggs,
+        gameTimeMs < GameConfig.HUD_FADE_TIME_MS,
+        mapRows,
+        mapCols,
+        tileMap
+      );
+    }
+
+    // Character selection overlay (rendered on top)
+    if (this.showingCharacterSelect) {
+      this.characterSelectRenderer.render(ctx, camera.viewportW, camera.viewportH);
+    }
   }
 }

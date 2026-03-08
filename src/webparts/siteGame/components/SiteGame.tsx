@@ -10,6 +10,7 @@ import { IInfoTarget } from '../game/types/IInfoTarget';
 import { IGameState } from '../game/types/IGameState';
 import { GameConfig } from '../game/constants/GameConfig';
 import { MusicEngine } from '../game/audio/MusicEngine';
+import { PlayerType } from '../game/types/IPlayer';
 
 interface ISiteGameState {
   loading: boolean;
@@ -17,6 +18,7 @@ interface ISiteGameState {
   infoTarget: IInfoTarget | null;
   toasts: Array<{ id: number; text: string }>;
   tooNarrow: boolean;
+  playerType: PlayerType | null;
 }
 
 const GAME_HEIGHT = 480;
@@ -41,6 +43,7 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
       infoTarget: null,
       toasts: [],
       tooNarrow: false,
+      playerType: null,
     };
     this.spService = new SharePointService(props.spHttpClient, props.siteAbsoluteUrl);
   }
@@ -55,6 +58,15 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
       return;
     }
 
+    // Always initialize game—GameEngine will show character selector if needed
+    await this.initializeGame(width);
+
+    // Pause when tab hidden
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+  }
+
+  private async initializeGame(width: number): Promise<void> {
+    const containerEl = this.containerRef.current;
     try {
       const data = await this.spService.fetchAll();
       const generator = new MapGenerator();
@@ -77,7 +89,8 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
         canvas,
         state,
         (target) => this.setState({ infoTarget: target }),
-        (eggId, name) => this.showEggToast(eggId, name)
+        (eggId, name) => this.showEggToast(eggId, name),
+        (playerType) => this.setState({ playerType })
       );
       this.engine.start();
       this.engine.setTheme(this.props.gameTheme || 'village');
@@ -118,7 +131,7 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
         });
       });
       this._lastResizeW = width;
-      this.resizeObserver.observe(containerEl);
+      this.resizeObserver.observe(containerEl!);
 
       this.setState({ loading: false });
     } catch (err) {
@@ -127,9 +140,6 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
         error: err instanceof Error ? err.message : 'Failed to load site data.',
       });
     }
-
-    // Pause when tab hidden
-    document.addEventListener('visibilitychange', this.handleVisibilityChange);
   }
 
   public componentDidUpdate(prevProps: ISiteGameProps): void {

@@ -10,9 +10,8 @@ export type DrawCommand =
 // T = tile size (scaled); all coordinates are fractions of 1 tile unit
 // Actual sizes will be multiplied by TILE_SIZE at render time
 
-// ---- Player ----
-// A simple pixel-art character: hat, head, body, legs, arms
-export const PLAYER_SPRITE: DrawCommand[] = [
+// ---- Player: Male (hat + pants) ----
+export const PLAYER_MALE: DrawCommand[] = [
   // Hat
   { op: 'fillRect', color: '#2255aa', x: 10, y: 2, w: 12, h: 4 },
   // Head
@@ -28,17 +27,125 @@ export const PLAYER_SPRITE: DrawCommand[] = [
   // Hands
   { op: 'circle', color: '#f5c29a', cx: 6, cy: 25, r: 3 },
   { op: 'circle', color: '#f5c29a', cx: 26, cy: 25, r: 3 },
-  // Legs
+  // Legs (pants)
   { op: 'fillRect', color: '#334466', x: 9, y: 26, w: 6, h: 6 },
   { op: 'fillRect', color: '#334466', x: 17, y: 26, w: 6, h: 6 },
 ];
 
-// Leg walk animation frame 1 (legs spread) — override leg rects
-export const PLAYER_WALK1: DrawCommand[] = [
-  ...PLAYER_SPRITE.slice(0, 9),
+// Male walk animation (legs spread)
+export const PLAYER_MALE_WALK1: DrawCommand[] = [
+  ...PLAYER_MALE.slice(0, 9),
   { op: 'fillRect', color: '#334466', x: 7, y: 26, w: 6, h: 6 },
   { op: 'fillRect', color: '#334466', x: 19, y: 26, w: 6, h: 6 },
 ];
+
+// ---- Player: Female (long hair + skirt) ----
+export const PLAYER_FEMALE: DrawCommand[] = [
+  // Long hair (flowing down sides)
+  { op: 'fillRect', color: '#8b5a3c', x: 8, y: 4, w: 4, h: 14 },    // left hair
+  { op: 'fillRect', color: '#8b5a3c', x: 20, y: 4, w: 4, h: 14 },   // right hair
+  // Head
+  { op: 'circle', color: '#f5c29a', cx: 16, cy: 11, r: 7 },
+  // Eyes
+  { op: 'circle', color: '#222', cx: 13, cy: 10, r: 1.5 },
+  { op: 'circle', color: '#222', cx: 19, cy: 10, r: 1.5 },
+  // Smile
+  { op: 'arc', color: '#c9945d', cx: 16, cy: 14, r: 2, start: 0.1, end: Math.PI - 0.1 },
+  // Body (dress/top)
+  { op: 'fillRect', color: '#d4416b', x: 9, y: 18, w: 14, h: 5 },
+  // Arms (sleeveless top)
+  { op: 'fillRect', color: '#d4416b', x: 4, y: 19, w: 5, h: 5 },
+  { op: 'fillRect', color: '#d4416b', x: 23, y: 19, w: 5, h: 5 },
+  // Hands
+  { op: 'circle', color: '#f5c29a', cx: 6, cy: 25, r: 3 },
+  { op: 'circle', color: '#f5c29a', cx: 26, cy: 25, r: 3 },
+  // Skirt (flared bottom)
+  { op: 'fillRect', color: '#b8346b', x: 6, y: 23, w: 20, h: 9 },
+];
+
+// Female walk animation (skirt sway)
+export const PLAYER_FEMALE_WALK1: DrawCommand[] = [
+  // Long hair
+  { op: 'fillRect', color: '#8b5a3c', x: 8, y: 4, w: 4, h: 14 },
+  { op: 'fillRect', color: '#8b5a3c', x: 20, y: 4, w: 4, h: 14 },
+  // Head
+  { op: 'circle', color: '#f5c29a', cx: 16, cy: 11, r: 7 },
+  // Eyes
+  { op: 'circle', color: '#222', cx: 13, cy: 10, r: 1.5 },
+  { op: 'circle', color: '#222', cx: 19, cy: 10, r: 1.5 },
+  // Smile
+  { op: 'arc', color: '#c9945d', cx: 16, cy: 14, r: 2, start: 0.1, end: Math.PI - 0.1 },
+  // Body (dress/top)
+  { op: 'fillRect', color: '#d4416b', x: 9, y: 18, w: 14, h: 5 },
+  // Arms
+  { op: 'fillRect', color: '#d4416b', x: 4, y: 19, w: 5, h: 5 },
+  { op: 'fillRect', color: '#d4416b', x: 23, y: 19, w: 5, h: 5 },
+  // Hands
+  { op: 'circle', color: '#f5c29a', cx: 6, cy: 25, r: 3 },
+  { op: 'circle', color: '#f5c29a', cx: 26, cy: 25, r: 3 },
+  // Skirt (swaying - wider on walk)
+  { op: 'fillRect', color: '#b8346b', x: 5, y: 23, w: 22, h: 9 },
+];
+
+// ---- Player: Neutral (hoodie) ----
+export const PLAYER_NEUTRAL: DrawCommand[] = [
+  // Hood (dark gray)
+  { op: 'fillRect', color: '#505050', x: 8, y: 1, w: 16, h: 12 },
+  // Hood rim/border
+  { op: 'circle', color: '#505050', cx: 16, cy: 8, r: 8 },
+  // Head (mostly covered, just eyes visible)
+  { op: 'circle', color: '#f5c29a', cx: 16, cy: 12, r: 5 },
+  // Eyes (prominent, visible from hood)
+  { op: 'circle', color: '#fff', cx: 13, cy: 11, r: 1.5 },
+  { op: 'circle', color: '#fff', cx: 19, cy: 11, r: 1.5 },
+  { op: 'circle', color: '#222', cx: 13, cy: 11, r: 0.8 },
+  { op: 'circle', color: '#222', cx: 19, cy: 11, r: 0.8 },
+  // Hoodie body (baggy torso)
+  { op: 'fillRect', color: '#404040', x: 7, y: 13, w: 18, h: 10 },
+  // Pocket on hoodie
+  { op: 'fillRect', color: '#303030', x: 12, y: 17, w: 8, h: 5 },
+  // Arms (inside hoodie sleeves)
+  { op: 'fillRect', color: '#505050', x: 3, y: 18, w: 5, h: 6 },
+  { op: 'fillRect', color: '#505050', x: 24, y: 18, w: 5, h: 6 },
+  // Hands
+  { op: 'circle', color: '#f5c29a', cx: 6, cy: 25, r: 3 },
+  { op: 'circle', color: '#f5c29a', cx: 26, cy: 25, r: 3 },
+  // Legs (dark pants/jeans)
+  { op: 'fillRect', color: '#1a1a3a', x: 9, y: 26, w: 6, h: 6 },
+  { op: 'fillRect', color: '#1a1a3a', x: 17, y: 26, w: 6, h: 6 },
+];
+
+// Neutral walk animation (hoodie sway)
+export const PLAYER_NEUTRAL_WALK1: DrawCommand[] = [
+  // Hood
+  { op: 'fillRect', color: '#505050', x: 8, y: 1, w: 16, h: 12 },
+  // Hood rim
+  { op: 'circle', color: '#505050', cx: 16, cy: 8, r: 8 },
+  // Head
+  { op: 'circle', color: '#f5c29a', cx: 16, cy: 12, r: 5 },
+  // Eyes
+  { op: 'circle', color: '#fff', cx: 13, cy: 11, r: 1.5 },
+  { op: 'circle', color: '#fff', cx: 19, cy: 11, r: 1.5 },
+  { op: 'circle', color: '#222', cx: 13, cy: 11, r: 0.8 },
+  { op: 'circle', color: '#222', cx: 19, cy: 11, r: 0.8 },
+  // Hoodie body (slight sway)
+  { op: 'fillRect', color: '#404040', x: 6, y: 13, w: 20, h: 10 },
+  // Pocket
+  { op: 'fillRect', color: '#303030', x: 11, y: 17, w: 10, h: 5 },
+  // Arms
+  { op: 'fillRect', color: '#505050', x: 3, y: 18, w: 5, h: 6 },
+  { op: 'fillRect', color: '#505050', x: 24, y: 18, w: 5, h: 6 },
+  // Hands
+  { op: 'circle', color: '#f5c29a', cx: 6, cy: 25, r: 3 },
+  { op: 'circle', color: '#f5c29a', cx: 26, cy: 25, r: 3 },
+  // Legs (spread for walk)
+  { op: 'fillRect', color: '#1a1a3a', x: 7, y: 26, w: 6, h: 6 },
+  { op: 'fillRect', color: '#1a1a3a', x: 19, y: 26, w: 6, h: 6 },
+];
+
+// Keep backward compatibility
+export const PLAYER_SPRITE = PLAYER_MALE;
+export const PLAYER_WALK1 = PLAYER_MALE_WALK1;
 
 // ---- User NPC variants ----
 function makeUserNPC(bodyColor: string, hatColor: string): DrawCommand[] {
@@ -543,6 +650,12 @@ export const POWER_BI: DrawCommand[] = [
 export type SpriteKey =
   | 'player'
   | 'player_walk1'
+  | 'player_male'
+  | 'player_male_walk1'
+  | 'player_female'
+  | 'player_female_walk1'
+  | 'player_neutral'
+  | 'player_neutral_walk1'
   | 'user_npc_owner'
   | 'user_npc_member'
   | 'user_npc_visitor'
@@ -564,6 +677,12 @@ export type SpriteKey =
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   player: PLAYER_SPRITE,
   player_walk1: PLAYER_WALK1,
+  player_male: PLAYER_MALE,
+  player_male_walk1: PLAYER_MALE_WALK1,
+  player_female: PLAYER_FEMALE,
+  player_female_walk1: PLAYER_FEMALE_WALK1,
+  player_neutral: PLAYER_NEUTRAL,
+  player_neutral_walk1: PLAYER_NEUTRAL_WALK1,
   user_npc_owner: USER_NPC_OWNER,
   user_npc_member: USER_NPC_MEMBER,
   user_npc_visitor: USER_NPC_VISITOR,
