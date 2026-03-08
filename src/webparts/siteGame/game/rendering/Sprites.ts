@@ -511,10 +511,33 @@ export const POWER_PAGES: DrawCommand[] = [
 
 ];
 
+// ---- Power BI — three ascending bar-chart columns matching the official logo ----
+// Left bar = lightest yellow (short), middle = golden (medium), right = dark amber (tallest).
+// Each bar uses two colour bands to suggest the top-light, bottom-dark gradient.
 export const POWER_BI: DrawCommand[] = [
-  // simple yellow square with BI text
-  { op: 'fillRect', color: '#F2C811', x: 8, y: 8, w: 16, h: 16 },
-  { op: 'text', color: '#000', text: 'BI', x: 10, y: 22, size: 10 },
+  // ── Right bar (tallest, cols 20-27, rows 0-20) ──
+  { op: 'fillRect', color: '#F5C200', x: 21, y: 0,  w: 6,  h: 1 }, // rounded top cap
+  { op: 'fillRect', color: '#F5C200', x: 20, y: 1,  w: 8,  h: 5 }, // upper — light amber
+  { op: 'fillRect', color: '#C47A00', x: 20, y: 6,  w: 8,  h: 7 }, // mid — deep amber
+  { op: 'fillRect', color: '#7B3A00', x: 20, y: 13, w: 8,  h: 8 }, // lower — dark brown
+
+  // ── Middle bar (medium, cols 11-18, rows 6-20) ──
+  { op: 'fillRect', color: '#FFF9C4', x: 12, y: 6,  w: 6,  h: 1 }, // rounded top cap
+  { op: 'fillRect', color: '#F2C811', x: 11, y: 7,  w: 8,  h: 7 }, // upper — golden
+  { op: 'fillRect', color: '#CC9B00', x: 11, y: 14, w: 8,  h: 7 }, // lower — deep gold
+
+  // ── Left bar (shortest, cols 1-8, rows 13-20) ──
+  { op: 'fillRect', color: '#FFFDE7', x: 2,  y: 13, w: 6,  h: 1 }, // rounded top cap
+  { op: 'fillRect', color: '#FFF176', x: 1,  y: 14, w: 8,  h: 4 }, // upper — pale yellow
+  { op: 'fillRect', color: '#F2C811', x: 1,  y: 18, w: 8,  h: 3 }, // lower — golden
+
+  // ── Legs (dark amber) ──
+  { op: 'fillRect', color: '#7B3A00', x: 8,  y: 22, w: 5,  h: 5 },
+  { op: 'fillRect', color: '#7B3A00', x: 18, y: 22, w: 5,  h: 5 },
+
+  // ── Boots ──
+  { op: 'fillRect', color: '#5A2A00', x: 7,  y: 27, w: 7,  h: 3 },
+  { op: 'fillRect', color: '#5A2A00', x: 17, y: 27, w: 7,  h: 3 },
 ];
 
 export type SpriteKey =

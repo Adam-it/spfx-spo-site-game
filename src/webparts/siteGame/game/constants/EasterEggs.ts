@@ -776,6 +776,9 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
       'There are two common patterns: user owns data (OAuth) and app owns data (service principal). ' +
       'Use `powerbicli` or REST for automation.\n\n' +
       'Embed securely in SPFx with the `@microsoft/powerbi-client-react` package. '
+    ],
+  },
+  {
     id: 'power_pages',
     name: 'Power Pages',
     kind: 'easteregg',
