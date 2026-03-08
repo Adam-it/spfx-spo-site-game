@@ -30,6 +30,8 @@ const logoPowerAutomate: string = require('../../../../../assets/logos/power-aut
 const logoSPFxSamples: string      = require('../../../../../assets/logos/pnp-samples-social.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoPowerBI: string         = require('../../../../../assets/logos/power-bi.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoPnpCore: string          = require('../../../../../assets/logos/pnp-core-library.png');
 
 interface IFolderEntry { url: string; name: string; }
 
@@ -86,6 +88,7 @@ const styles = mergeStyleSets({
   eggLogo: {
     display: 'block',
     maxWidth: 180,
+    maxHeight: 50,
     height: 'auto',
     margin: '16px auto 8px',
   },
@@ -375,6 +378,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       power_bi: '📊',
       julie: '🌟',
       luise: '👑',
+      pnp_core: '🔷',
     };
 
     const logoMap: Record<string, string> = {
@@ -385,6 +389,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       power_automate:   logoPowerAutomate,
       pnp_spfx_samples: logoSPFxSamples,
       power_bi:         logoPowerBI,
+      pnp_core:         logoPnpCore,
     };
 
     const bioText = this.state.activeBio ?? npc.bio;
