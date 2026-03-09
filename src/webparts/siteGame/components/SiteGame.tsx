@@ -157,6 +157,18 @@ export default class SiteGame extends React.Component<ISiteGameProps, ISiteGameS
         this.musicEngine?.stop();
       }
     }
+    if (
+      prevProps.enableEasterEggs !== this.props.enableEasterEggs ||
+      prevProps.enableM365EasterEggs !== this.props.enableM365EasterEggs ||
+      prevProps.maxBots !== this.props.maxBots ||
+      prevProps.showEmptyLists !== this.props.showEmptyLists
+    ) {
+      const containerEl = this.containerRef.current;
+      if (containerEl) {
+        const width = containerEl.clientWidth;
+        this.initializeGame(width).catch(() => undefined);
+      }
+    }
   }
 
   public componentWillUnmount(): void {

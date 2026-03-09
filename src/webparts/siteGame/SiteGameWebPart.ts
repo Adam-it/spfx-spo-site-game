@@ -51,6 +51,10 @@ export default class SiteGameWebPart extends BaseClientSideWebPart<ISiteGameWebP
     ReactDom.render(element, this.domElement);
   }
 
+  protected onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): void {
+    super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
+    this.render();
+  }
 
   protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
     if (!currentTheme) return;

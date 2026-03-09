@@ -67,6 +67,71 @@ export const M365_EASTER_EGG_DEFINITIONS: M365EasterEggDefinition[] = [
     ],
   },
   {
+    id: 'power_apps',
+    name: 'Power Apps',
+    kind: 'm365egg',
+    spriteKey: 'power_apps',
+    title: '\u26a1 Power Apps \u2014 Build apps without code',
+    bio: 'make.powerapps.com',
+    bios: [
+      // Tip 1 \u2013 Build apps fast
+      '\u26a1 "Build apps fast with Power Apps!"\n\n' +
+      'Power Apps is a suite of apps, services, and connectors that lets you ' +
+      'build custom business apps without writing code. Create mobile and web ' +
+      'apps that connect to data stored in Microsoft Dataverse or various ' +
+      'data sources like SharePoint, Excel, SQL, and 900+ connectors.\n\n' +
+      'App types:\n' +
+      '  \ud83d\udcf1 Canvas apps \u2014 drag-and-drop designer, pixel-perfect UI\n' +
+      '  \ud83d\udcca Model-driven apps \u2014 data-driven, responsive layouts\n' +
+      '  \ud83e\udde9 Copilot Studio \u2014 build AI-powered conversational apps\n\n' +
+      'Use cases:\n' +
+      '  \u2705 Inspection & survey forms\n' +
+      '  \u2705 Asset tracking & inventory management\n' +
+      '  \u2705 Custom dashboards & reports\n' +
+      '  \u2705 Approval workflows with mobile access\n\n' +
+      '\ud83c\udf10 https://make.powerapps.com\n' +
+      '\ud83d\udcd6 Docs \u2192 https://learn.microsoft.com/power-apps',
+
+      // Tip 2 \u2013 Connect to SharePoint
+      '\u26a1 "Power Apps \u2665 SharePoint!"\n\n' +
+      'Build custom forms and apps on top of SharePoint lists:\n\n' +
+      '\ud83d\udce5 Customize list forms:\n' +
+      '  \u2022 Replace default SharePoint forms with Power Apps\n' +
+      '  \u2022 Add conditional logic, validation, calculations\n' +
+      '  \u2022 Hide/show fields based on user or data\n' +
+      '  \u2022 Integrate with other data sources (SQL, Excel, APIs)\n\n' +
+      '\ud83d\udcf1 Build standalone apps:\n' +
+      '  \u2022 Create mobile-friendly canvas apps from SharePoint data\n' +
+      '  \u2022 Add multiple lists, galleries, charts, maps\n' +
+      '  \u2022 Offline support for field workers\n' +
+      '  \u2022 Embed Power Apps in SharePoint pages or Teams\n\n' +
+      '\ud83d\udca1 Pro tip: Use Gallery controls to display list data,\n' +
+      'and Form controls to create/edit items with custom layouts.\n\n' +
+      '\ud83d\udcd6 SharePoint integration \u2192 https://learn.microsoft.com/power-apps/maker/canvas-apps/connections/connection-sharepoint-online',
+
+      // Tip 3 \u2013 Integrate with Power Platform
+      '\u26a1 "Power Apps + Power Platform = \ud83d\ude80"\n\n' +
+      'Combine Power Apps with other Power Platform services:\n\n' +
+      '\ud83d\udd0c Power Automate:\n' +
+      '  \u2022 Trigger flows from buttons in your app\n' +
+      '  \u2022 Run background processes (email, approvals, data sync)\n' +
+      '  \u2022 Update app data with scheduled or event-driven flows\n\n' +
+      '\ud83d\udcca Power BI:\n' +
+      '  \u2022 Embed interactive reports and dashboards\n' +
+      '  \u2022 Navigate to Power Apps from report visuals\n' +
+      '  \u2022 Real-time analytics with live data connections\n\n' +
+      '\ud83e\udd16 AI Builder:\n' +
+      '  \u2022 Add AI models for object detection, text recognition\n' +
+      '  \u2022 Business card reader, invoice processing\n' +
+      '  \u2022 Sentiment analysis, language detection\n\n' +
+      '\ud83d\udcd8 Microsoft Dataverse:\n' +
+      '  \u2022 Secure, cloud-based data platform\n' +
+      '  \u2022 Built-in business logic, security, relationships\n' +
+      '  \u2022 Integrated with Dynamics 365 and M365\n\n' +
+      '\ud83d\udcd6 Power Platform \u2192 https://learn.microsoft.com/power-platform',
+      ],
+  },
+  {
     id: 'power_bi',
     name: 'Power BI',
     kind: 'm365egg',

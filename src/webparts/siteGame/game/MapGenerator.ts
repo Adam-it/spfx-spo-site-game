@@ -324,6 +324,7 @@ export class MapGenerator {
     if (options.enableM365EasterEggs) {
       const m365Spawns: Array<{ row: number; col: number }> = [
         { row: midRow - 2, col: midCol + 10 },   // power_automate (0)
+        { row: midRow + 3, col: midCol - 8 },    // power_apps (1)
         { row: midRow - 9, col: midCol + 7 },    // power_bi (1)
         { row: midRow + 0, col: midCol + 10 },   // power_pages (2)
         { row: midRow - 1, col: midCol - 8 },    // ms_lists (3)

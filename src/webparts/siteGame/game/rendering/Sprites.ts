@@ -689,6 +689,50 @@ export const MS_LISTS: DrawCommand[] = [
   { op: 'fillRect', color: '#005555', x: 18, y: 27, w: 7, h: 3 },
 ];
 
+// ---- Power Apps — 3-tone purple chevron logo with legs ----
+// Similar to Power Automate but with Power Apps purple/magenta color scheme
+// Dark purple / medium magenta / light purple diagonal bands
+export const POWER_APPS: DrawCommand[] = [
+  // ── Back diamond (dark purple #742774, center ≈ x10 y11, half-diag 8px) ──
+  // Drawn first so the front diamond overwrites the overlapping region
+  { op: 'fillRect', color: '#742774', x: 9,  y: 2,  w: 2,  h: 2 },  // tip
+  { op: 'fillRect', color: '#742774', x: 7,  y: 4,  w: 6,  h: 2 },
+  { op: 'fillRect', color: '#742774', x: 5,  y: 6,  w: 10, h: 2 },
+  { op: 'fillRect', color: '#742774', x: 3,  y: 8,  w: 14, h: 2 },
+  { op: 'fillRect', color: '#742774', x: 1,  y: 10, w: 18, h: 2 },  // widest
+  { op: 'fillRect', color: '#742774', x: 3,  y: 12, w: 14, h: 2 },
+  { op: 'fillRect', color: '#742774', x: 5,  y: 14, w: 10, h: 2 },
+  { op: 'fillRect', color: '#742774', x: 7,  y: 16, w: 6,  h: 2 },
+  { op: 'fillRect', color: '#742774', x: 9,  y: 18, w: 2,  h: 2 },  // tip
+
+  // ── Front diamond (offset upper-right, center ≈ x14 y9, half-diag 8px) ──
+  // Split at x=14 (centre): left half = medium pink #C44CC4, right = light pink #E8A8E8
+  { op: 'fillRect', color: '#C44CC4', x: 13, y: 0,  w: 1,  h: 2 },  // tip
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 0,  w: 1,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 11, y: 2,  w: 3,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 2,  w: 3,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 9,  y: 4,  w: 5,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 4,  w: 5,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 7,  y: 6,  w: 7,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 6,  w: 7,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 5,  y: 8,  w: 9,  h: 2 },  // widest
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 8,  w: 9,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 7,  y: 10, w: 7,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 10, w: 7,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 9,  y: 12, w: 5,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 12, w: 5,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 11, y: 14, w: 3,  h: 2 },
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 14, w: 3,  h: 2 },
+  { op: 'fillRect', color: '#C44CC4', x: 13, y: 16, w: 1,  h: 2 },  // tip
+  { op: 'fillRect', color: '#E8A8E8', x: 14, y: 16, w: 1,  h: 2 },
+
+  // ── Legs ──
+  { op: 'fillRect', color: '#742774', x: 5,  y: 22, w: 5,  h: 5 },
+  { op: 'fillRect', color: '#742774', x: 13, y: 22, w: 5,  h: 5 },
+  { op: 'fillRect', color: '#C44CC4', x: 4,  y: 26, w: 7,  h: 3 },
+  { op: 'fillRect', color: '#C44CC4', x: 12, y: 26, w: 7,  h: 3 },
+];
+
 export type SpriteKey =
   | 'player'
   | 'player_walk1'
@@ -715,6 +759,7 @@ export type SpriteKey =
   | 'pnp_spfx_samples'
   | 'power_bi'
   | 'pnp_core'
+  | 'power_apps'
   | 'ms_lists';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
@@ -743,6 +788,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   pnp_spfx_samples: PNP_SPFX_SAMPLES,
   power_bi: POWER_BI,
   pnp_core: PNP_CORE,
+  power_apps: POWER_APPS,
   ms_lists: MS_LISTS,
 };
 
