@@ -801,5 +801,49 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
       'Apply business rules, validation, and custom logic with Power FX.\n\n' +
       '📄 See docs: https://aka.ms/PowerPagesDocs',
     ],
-  }
+  },
+  {
+    id: 'ms_lists',
+    name: 'Microsoft Lists',
+    kind: 'easteregg',
+    spriteKey: 'ms_lists',
+    title: '\u2713 Microsoft Lists \u2014 One app to track it all',
+    bio: 'https://www.microsoft.com/en-us/microsoft-365/microsoft-lists',
+    bios: [
+      // Tip 1 – One app to track it all
+      '✓ "One app to track it all!"\n\n' +
+      'Create, share, and track lists with anyone. Start quickly with ' +
+      'ready-made templates for issues, assets, events, and more.\n\n' +
+      '  ✅ Track and manage lists wherever you\'re working\n' +
+      '  ✅ See recent and favorite lists\n' +
+      '  ✅ Easily share lists with others\n\n' +
+      'Microsoft Lists works seamlessly across Microsoft 365 — ' +
+      'SharePoint, Teams, or on the web.\n\n' +
+      '🌐 https://www.microsoft.com/en-us/microsoft-365/microsoft-lists',
+
+      // Tip 2 – Customize and collaborate in Teams
+      '✓ "Customize and collaborate in Teams!"\n\n' +
+      'Work together in real time with conversation and lists side by side. ' +
+      'Add Lists as tabs to any Teams channel.\n\n' +
+      '  📅 Calendar — Track deadlines and schedules\n' +
+      '  📋 Grid — Classic spreadsheet-style view\n' +
+      '  🎨 Gallery — Visual card layout with images\n\n' +
+      'Highlight important details with conditional formatting and rules. ' +
+      'Color-code rows, send notifications, and apply automated formatting.\n\n' +
+      'All without writing code — point, click, and customize!\n\n' +
+      '👥 https://support.microsoft.com/en-us/microsoft-lists',
+
+      // Tip 3 – Automate with Power Platform
+      '✓ "Automate with Power Platform!"\n\n' +
+      'Build custom apps using lists as the data source.\n\n' +
+      '🔹 Power Apps — Extend forms with custom mobile & web apps\n' +
+      '⚡ Power Automate — Trigger workflows when items change\n\n' +
+      'Common automation scenarios:\n' +
+      '  ✅ Send notifications when tasks are assigned\n' +
+      '  ✅ Request approvals for high-priority items\n' +
+      '  ✅ Copy data to Excel, Dataverse, or other systems\n' +
+      '  ✅ Schedule recurring reminders and reports\n\n' +
+      '⚡ https://support.microsoft.com/en-us/office/automate-a-list-7a3ba7f0-55ea-4a38-80e1-b0a0279109b5',
+    ],
+  },
 ];
