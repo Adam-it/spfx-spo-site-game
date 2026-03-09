@@ -36,6 +36,8 @@ const logoPowerPages: string    = require('../../../../../assets/logos/power-pag
 const logoPnpCore: string          = require('../../../../../assets/logos/pnp-core-library.png');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const logoPowerApps: string = require('../../../../../assets/logos/power-apps.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logoMSLists: string      = require('../../../../../assets/logos/ms-lists-logo.png');
 
 interface IFolderEntry { url: string; name: string; }
 
@@ -385,6 +387,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       luise: '👑',
       pnp_core: '🔷',
       power_apps: '📱',
+      ms_lists: '✓',
     };
 
     const logoMap: Record<string, string> = {
@@ -398,6 +401,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       power_bi:         logoPowerBI,
       pnp_core:         logoPnpCore,
       power_apps:       logoPowerApps,
+      ms_lists:         logoMSLists,
     };
 
     const bioText = this.state.activeBio ?? npc.bio;
