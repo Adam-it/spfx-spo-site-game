@@ -84,6 +84,9 @@ export class CharacterRenderer {
     } else if (npc.spriteKey === 'power_automate') {
       // lightning bolt zip — fast up-snap, slow settle
       drawY += Math.round(Math.abs(Math.sin(gameTimeMs / 380)) * -5);
+    } else if (npc.spriteKey === 'power_apps') {
+      // app building pulse — smooth bounce rhythm
+      drawY += Math.round(Math.abs(Math.sin(gameTimeMs / 450)) * -4);
     } else if (npc.spriteKey === 'pnp_core') {
       // .NET hexagon — gentle oscillating float
       drawY += Math.round(Math.sin(gameTimeMs / 700) * -3);

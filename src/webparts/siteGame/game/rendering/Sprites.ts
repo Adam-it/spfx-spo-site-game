@@ -647,6 +647,63 @@ export const POWER_BI: DrawCommand[] = [
   { op: 'fillRect', color: '#5A2A00', x: 17, y: 27, w: 7,  h: 3 },
 ];
 
+// ---- Power Apps — 3-tone purple chevron logo with legs ----
+// Similar to Power Automate but with Power Apps purple/magenta color scheme
+// Dark purple / medium magenta / light purple diagonal bands
+export const POWER_APPS: DrawCommand[] = [
+  // Upper arm rows (widen toward apex)
+  // w=4
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 0,  w: 1,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 3,  y: 0,  w: 2,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 5,  y: 0,  w: 1,  h: 2 },
+  // w=8
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 2,  w: 3,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 5,  y: 2,  w: 3,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 8,  y: 2,  w: 2,  h: 2 },
+  // w=12
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 4,  w: 4,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 6,  y: 4,  w: 4,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 10, y: 4,  w: 4,  h: 2 },
+  // w=16
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 6,  w: 6,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 8,  y: 6,  w: 5,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 13, y: 6,  w: 5,  h: 2 },
+  // w=20
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 8,  w: 7,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 9,  y: 8,  w: 7,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 16, y: 8,  w: 6,  h: 2 },
+  // apex w=26
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 10, w: 9,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 11, y: 10, w: 9,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 20, y: 10, w: 8,  h: 2 },
+  // Lower arm rows (narrow back down — mirror of upper)
+  // w=20
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 12, w: 7,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 9,  y: 12, w: 7,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 16, y: 12, w: 6,  h: 2 },
+  // w=16
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 14, w: 6,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 8,  y: 14, w: 5,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 13, y: 14, w: 5,  h: 2 },
+  // w=12
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 16, w: 4,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 6,  y: 16, w: 4,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 10, y: 16, w: 4,  h: 2 },
+  // w=8
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 18, w: 3,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 5,  y: 18, w: 3,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 8,  y: 18, w: 2,  h: 2 },
+  // w=4
+  { op: 'fillRect', color: '#5C2D91', x: 2,  y: 20, w: 1,  h: 2 },
+  { op: 'fillRect', color: '#8C2A8C', x: 3,  y: 20, w: 2,  h: 2 },
+  { op: 'fillRect', color: '#D77CD7', x: 5,  y: 20, w: 1,  h: 2 },
+  // ── Legs ──
+  { op: 'fillRect', color: '#5C2D91', x: 6,  y: 22, w: 5,  h: 5 },
+  { op: 'fillRect', color: '#5C2D91', x: 14, y: 22, w: 5,  h: 5 },
+  { op: 'fillRect', color: '#8C2A8C', x: 5,  y: 26, w: 7,  h: 3 },
+  { op: 'fillRect', color: '#8C2A8C', x: 13, y: 26, w: 7,  h: 3 },
+];
+
 export type SpriteKey =
   | 'player'
   | 'player_walk1'
@@ -672,7 +729,8 @@ export type SpriteKey =
   | 'campfire'
   | 'pnp_spfx_samples'
   | 'power_bi'
-  | 'pnp_core';
+  | 'pnp_core'
+  | 'power_apps';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   player: PLAYER_SPRITE,
@@ -700,6 +758,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   pnp_spfx_samples: PNP_SPFX_SAMPLES,
   power_bi: POWER_BI,
   pnp_core: PNP_CORE,
+  power_apps: POWER_APPS,
 };
 
 export function renderSprite(
