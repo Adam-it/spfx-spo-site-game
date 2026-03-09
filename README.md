@@ -1,4 +1,4 @@
-# SPFx SPO Site World
+# SPFx SPO Site Game
 
 ## Summary
 
