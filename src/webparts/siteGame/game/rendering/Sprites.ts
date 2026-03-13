@@ -516,6 +516,39 @@ export const CAMPFIRE: DrawCommand[] = [
   { op: 'circle', color: '#ff4400', cx: 14, cy: 8, r: 1 },
 ];
 
+// ---- Hugo — World's Laziest Developer ----
+export const HUGO: DrawCommand[] = [
+  // Bald head (no hair — just the dome)
+  { op: 'circle', color: '#f0c898', cx: 16, cy: 10, r: 7 },
+  // Subtle bald shine
+  { op: 'circle', color: '#f8ddb0', cx: 14, cy: 6, r: 3 },
+  // Eyes
+  { op: 'circle', color: '#333', cx: 13, cy: 9, r: 1.5 },
+  { op: 'circle', color: '#333', cx: 19, cy: 9, r: 1.5 },
+  // Smile
+  { op: 'arc', color: '#8a5030', cx: 16, cy: 13, r: 3, start: 0.1, end: Math.PI - 0.1 },
+  // Body (blue T-shirt)
+  { op: 'fillRect', color: '#2196f3', x: 9, y: 17, w: 14, h: 9 },
+  // T-shirt collar
+  { op: 'fillRect', color: '#1976d2', x: 13, y: 17, w: 6, h: 2 },
+  // Arms (blue T-shirt)
+  { op: 'fillRect', color: '#2196f3', x: 5, y: 18, w: 4, h: 5 },
+  { op: 'fillRect', color: '#2196f3', x: 23, y: 18, w: 4, h: 5 },
+  // Hands
+  { op: 'circle', color: '#f0c898', cx: 7, cy: 24, r: 2.5 },
+  { op: 'circle', color: '#f0c898', cx: 25, cy: 24, r: 2.5 },
+  // Coffee cup in right hand
+  { op: 'fillRect', color: '#ffffff', x: 23, y: 21, w: 4, h: 4 },
+  { op: 'fillRect', color: '#6d4c41', x: 24, y: 22, w: 2, h: 2 },
+  // Coffee steam
+  { op: 'circle', color: 'rgba(200,200,200,0.6)', cx: 25, cy: 19, r: 1 },
+  // MVP star badge
+  { op: 'text', color: '#ffd700', text: '★', x: 13, y: 24, size: 7 },
+  // Legs (jeans)
+  { op: 'fillRect', color: '#37474f', x: 9, y: 26, w: 6, h: 6 },
+  { op: 'fillRect', color: '#37474f', x: 17, y: 26, w: 6, h: 6 },
+];
+
 // ---- Luise — M365 Princess ----
 export const LUISE: DrawCommand[] = [
   // Crown (golden)
@@ -785,6 +818,7 @@ export type SpriteKey =
   | 'pnp_core'
   | 'power_apps'
   | 'ms_lists'
+  | 'hugo'
   | 'ufo';
 
 export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
@@ -815,6 +849,7 @@ export const SPRITES: Record<SpriteKey, DrawCommand[]> = {
   pnp_core: PNP_CORE,
   power_apps: POWER_APPS,
   ms_lists: MS_LISTS,
+  hugo: HUGO,
   ufo: UFO_SPRITE,
 };
 

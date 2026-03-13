@@ -388,6 +388,7 @@ export class InfoPanel extends React.Component<IInfoPanelProps, IPanelState> {
       pnp_core: '🔷',
       power_apps: '📱',
       ms_lists: '✓',
+      hugo: '☕',
     };
 
     const logoMap: Record<string, string> = {

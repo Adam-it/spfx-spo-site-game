@@ -749,4 +749,66 @@ export const EASTER_EGG_DEFINITIONS: EasterEggDefinition[] = [
       '   · ACEs → github.com/pnp/sp-dev-fx-aces',
     ],
   },
+  {
+    id: 'hugo',
+    name: 'Hugo',
+    kind: 'easteregg',
+    spriteKey: 'hugo',
+    title: '☕ Hugo — World\'s Laziest Developer',
+    bio: 'World\'s Laziest Developer, powered by coffee | AI Architect | Microsoft MVP',
+    bios: [
+      // Introduction
+      '☕ "Hello! I am Hugo!"\n\n' +
+      'World\'s Laziest Developer, powered by coffee | AI Architect | Microsoft MVP.\n\n' +
+      'I autoblock anyone who contacts me to sell me anything. 🚫\n\n' +
+      'But if you want to learn and grow in the community, ' +
+      'I\'m always happy to help!\n\n' +
+      'My tip: check out the Sharing Is Caring program — ' +
+      'the best way to start contributing to the PnP community.\n\n' +
+      '🤝 Start here → https://pnp.github.io/sharing-is-caring/',
+
+      // Sharing Is Caring
+      '☕ "Want to contribute but don\'t know where to start?"\n\n' +
+      'The Sharing Is Caring program is a community initiative ' +
+      'that helps you take your first steps into open-source ' +
+      'contribution within the Microsoft 365 ecosystem.\n\n' +
+      '🎓 What you get:\n' +
+      '  ✅ Hands-on guidance for your first Pull Request\n' +
+      '  ✅ Learn to submit samples, docs, and code fixes\n' +
+      '  ✅ Buddy system — an experienced contributor helps you\n' +
+      '  ✅ Sessions on GitHub setup, forking, and PR workflow\n' +
+      '  ✅ It\'s FREE and open to everyone!\n\n' +
+      'No contribution is too small — every PR counts.\n\n' +
+      '🤝 Join the program → https://pnp.github.io/sharing-is-caring/',
+
+      // PnP SPFx web parts gallery
+      '☕ "Before writing any SPFx web part from scratch..."\n\n' +
+      'Check the PnP SPFx Web Parts gallery first! It has hundreds ' +
+      'of community-built, production-quality SharePoint Framework ' +
+      'web parts ready to use and learn from.\n\n' +
+      '📦 What you will find:\n' +
+      '  ✅ Real-world web parts for every scenario\n' +
+      '  ✅ Microsoft Graph integrations\n' +
+      '  ✅ React + SPFx best practices\n' +
+      '  ✅ Fully documented with setup instructions\n' +
+      '  ✅ Open-source — fork, learn, contribute back!\n\n' +
+      'Why reinvent the wheel? Stand on the shoulders of the community.\n\n' +
+      '🌐 Gallery → aka.ms/spfx-webparts\n' +
+      '💻 GitHub → https://github.com/pnp/sp-dev-fx-webparts',
+
+      // Lazy developer tip
+      '☕ "A truly lazy developer automates everything..."\n\n' +
+      'And the laziest developer of all? Uses what the community ' +
+      'has already built. That\'s not lazy — that\'s smart.\n\n' +
+      '💡 Hugo\'s workflow:\n' +
+      '  1️⃣ Check PnP samples before coding anything\n' +
+      '  2️⃣ Use SPFx Toolkit in VS Code for scaffolding\n' +
+      '  3️⃣ Leverage PnPjs for SharePoint & Graph calls\n' +
+      '  4️⃣ Contribute back to Sharing Is Caring\n' +
+      '  5️⃣ Refill coffee. Repeat. ☕\n\n' +
+      'The best code is the code someone else already wrote and tested.\n\n' +
+      '🤝 Sharing Is Caring → https://pnp.github.io/sharing-is-caring/\n' +
+      '🌐 SPFx Web Parts → aka.ms/spfx-webparts',
+    ],
+  },
 ];

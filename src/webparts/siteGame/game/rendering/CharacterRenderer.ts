@@ -111,6 +111,8 @@ export class CharacterRenderer {
       this.renderSpeechBubble(ctx, sx + ts / 2, drawY - 2, '"This is SharePoint..."');
     }
 
+
+
     // Name tag
     ctx.fillStyle = npc.kind === 'easteregg' ? 'rgba(80,0,120,0.82)' : 'rgba(0,0,0,0.70)';
     ctx.font = 'bold 8px sans-serif';
